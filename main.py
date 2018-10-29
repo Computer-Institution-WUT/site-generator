@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import jinja2
+from distutils.dir_util import copy_tree
 
 
 t_loader = jinja2.FileSystemLoader(searchpath='templates/')
@@ -9,6 +10,10 @@ t_env = jinja2.Environment(loader=t_loader)
 def publish(name, content):
     with open('release/' + name, 'wb') as f:
         f.write(content.encode('utf8'))
+
+
+def copy_statics():
+    copy_tree("static_files/", "release/")
 
 
 def render_index():
@@ -45,8 +50,17 @@ def render_index():
     publish('index.html', s)
 
 
+def render_about():
+    t_name = 'about.html'
+    t = t_env.get_template(t_name)
+    s = t.render(title='关于')
+    publish('about.html', s)
+
+
 def main():
+    # copy_statics()
     render_index()
+    render_about()
 
 
 if __name__ == '__main__':
