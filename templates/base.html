@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{{ title }}</title>
+
+    {% block csses %}    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    {% endblock %}
+  </head>
+
+  <body class="text-center">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+      {% block head_contents %}
+      <header class="masthead mb-3">
+        <div class="inner">
+          <h3 class="masthead-brand">WUTCS</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link" href="#" id="head-nav-index">Home</a>
+            <a class="nav-link" href="about.html" id="head-nav-about">About</a>
+          </nav>
+        </div>
+      </header>
+      {% endblock %}
+
+      {% block brand %}{% endblock %}
+
+      {% block contents %}{% endblock %}
+
+
+      {% block footer %}    
+      <footer class="mastfoot mt-5">
+        <div class="inner">
+          <p class="mb-1">Site made by SKY & Xeon.</p>
+          <p>Template by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        </div>
+      </footer>
+      {% endblock %}
+    </div>
+
+    {% block jses %}    
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    {% endblock %}
+  </body>
+</html>

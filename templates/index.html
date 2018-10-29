@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+
+{% block csses %}
+{{ super() }}
+<link rel="stylesheet" href="css/index_style.css">
+{% endblock %}
+
+
+{% block head_contents %}
+{{ super() }}
+{% endblock %}
+
+
+{% block brand %}
+<main role="main" class="inner cover">
+  <h1 class="cover-heading mb-3 mt-5">武汉理工大学计算机协会</h1>
+  <p class="lead">Interesting things...</p>
+</main>
+{% endblock %}
+
+
+{% block contents %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-9">
+      <div class="container">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-light dropdown-toggle" id="show_button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: rgba(0, 0, 0, 0.33);">Bing</button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" onclick="change_select('bing')">Bing</a>
+              <a class="dropdown-item" onclick="change_select('rar')">RARBG</a>
+              <a class="dropdown-item" onclick="change_select('subhd')">SubHD</a>
+              <a class="dropdown-item" onclick="change_select('cilimao')">Cilimao</a>
+            </div>
+          </div>
+          <input type="text" class="form-control" id="search_string" placeholder="Search">
+          <div class="input-group-append">
+            <button class="btn btn-outline-light" type="button" style="background-color: rgba(0, 0, 0, 0.25)" onclick="clear_search()">Clear</button>
+            <button class="btn btn-outline-light" type="button" style="background-color: rgba(0, 0, 0, 0.25)" onclick="make_search()">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container" style="">
+  <div class="row mb-2 mt-5">
+    <div class="col-md-6">
+      <div class="card flex-md-row mb-4 shadow-sm h-md-250" style="background-color: rgba(0, 0, 0, 0.44)">
+        <div class="card-body d-flex flex-column align-items-start">
+          <strong class="d-inline-block mb-3 text-secondary">Blogs</strong>
+          <h3 class="mb-3">
+            <a class="text-light" href="{{ post['link'] }}">{{ post['title'] }}</a>
+          </h3>
+          <div class="mb-1 text-muted">{{ post['date'] }}</div>
+          <p class="card-text mb-auto text-white">{{ post['intro'] }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card flex-md-row mb-4 shadow-sm h-md-250" style="background-color: rgba(0, 0, 0, 0.44)">
+        <div class="card-body d-flex flex-column align-items-start">
+          <strong class="d-inline-block mb-3 text-success"> Next Activities</strong>
+          <h3 class="mb-3">
+            <a class="text-info" href="#">{{ act['title'] }}</a>
+          </h3>
+          <div class="mb-1 text-muted">{{ act['date'] }}</div>
+          <p class="card-text mb-auto text-primary">{{ act['content'] }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-2 mt-1">
+    <div class="col-md-6">
+
+      <div class="card flex-md-row mb-4 shadow-sm h-md-250" style="background-color: rgba(0, 0, 0, 0.44)">
+        <div class="card-body d-flex flex-column align-items-start">
+          <strong class="d-inline-block mb-3 text-secondary">Knowledge</strong>
+
+          <div class="row">
+            {% for key in knowledge_dic %}
+            <div class="col">
+              <button type="button" class="btn btn-outline-info btn-sm">{{ key }}</button>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-6">
+      <div class="card flex-md-row mb-4 shadow-sm h-md-250" style="background-color: rgba(0, 0, 0, 0.44)">
+        <div class="card-body d-flex flex-column align-items-start">
+          <strong class="d-inline-block mb-3 text-success"> News</strong>
+          <h3 class="mb-3">
+            <a class="text-light" href="{{ news['link'] }}">{{ news['title'] }}</a>
+          </h3>
+          <div class="mb-1 text-muted">{{ news['date'] }}</div>
+          <p class="card-text mb-auto text-primary">{{ news['content'] }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block jses %}
+{{ super() }}
+<script src="js/index_actions.js"></script>
+<script type="text/javascript">
+    var _current = 'bing'
+    $('#head-nav-index').addClass('active')
+    $('#head-nav-index')[0].href = '#'
+</script>
+{% endblock %}
