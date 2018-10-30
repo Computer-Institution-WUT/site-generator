@@ -1,3 +1,5 @@
 
 release/
 index_demo/
+*.db
+__pycache__
