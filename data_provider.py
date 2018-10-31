@@ -27,6 +27,7 @@ class SQLManager():
 
     def add(self, model):
         try:
+            logging.info('Adding to DB...')
             _session = self.DBSession()
             _session.add(model)
             _session.commit()
@@ -97,6 +98,16 @@ class DataProvider():
             result_list.append(news_dic)
         return result_list
 
+    def get_act(self):
+        r = self.sql_manager.query(ActModel)
+        r = r[-1]
+        result_dic = {
+            'title': r.title,
+            'date': r.date,
+            'content': r.content
+        }
+        return result_dic
+
     def add_news(self, title, content, date=None):
         if date:
             _date_str = date
@@ -110,6 +121,16 @@ class DataProvider():
             link=_unique_link
         )
         self.sql_manager.add(_news_single)
+
+    def add_act(self, title, content, date):
+        _index = self.get_hash(title + date)
+        _act_single = ActModel(
+            title=title,
+            content=content,
+            date=date,
+            index=_index
+        )
+        self.sql_manager.add(_act_single)
 
 
 if __name__ == '__main__':
