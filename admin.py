@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from data_provider import DataProvider
 from generator import SiteGenerator
 import psutil
+import logging
 
 
 provider = DataProvider()
@@ -37,6 +38,7 @@ def serve_news_request():
         provider.add_news(_title, _content)
         return '0'
     except Exception as e:
+        logging.error(str(e))
         return '1'
 
 
@@ -49,6 +51,7 @@ def serve_act_request():
         provider.add_act(_title, _content, _date)
         return '0'
     except Exception as e:
+        logging.error(str(e))
         return '1'
 
 
@@ -74,6 +77,7 @@ def serve_action_request():
             generator.generate_index(post, act, knowledge_dic, news)
         return '0'
     except Exception as e:
+        logging.error(str(e))
         return '1'
 
 

@@ -4,9 +4,10 @@ website - [WUTCOM](https://wutcom.club)
 
 ![our_LOGO](https://avatars3.githubusercontent.com/u/40829206?s=400&u=9c41875ca0ee5532d15aebacc4b16b125de83444&v=4)
 
-![](https://img.shields.io/github/license/mashape/apistatus.svg)![](https://img.shields.io/badge/alpha-0.0.1-blue.svg)
+![](https://img.shields.io/github/license/mashape/apistatus.svg)
+![](https://img.shields.io/badge/alpha-0.0.1-blue.svg)
 
-**site-generator：** 武汉理工大学计算机协会官方网站开发仓库，根据框架样式父页面 `base.html` ，子页面元素嵌套入父页面，基于 `bootstrap 4` 框架，使用 Python 自动生成静态页面。
+**site-generator：** 武汉理工大学计算机协会官方网站开发仓库，根据框架样式父页面 `base.html` ，子页面元素嵌套入父页面，基于 `Bootstrap 4` 框架，使用 Python 自动生成静态页面。
 
 ## Fetures
 
