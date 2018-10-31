@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+{% block csses %}
+{{ super() }}
+<link rel="stylesheet" href="css/blog.css">
+{% endblock %}
+
+
+{% block head_contents %}
+{{ super() }}
+{% endblock %}
+
+
+{% block brand %}
+<main role="main" class="inner cover">
+  <h1 class="cover-heading mb-5">Post</h1>
+</main>
+{% endblock %}
+
+
+{% block contents %}
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="background-color: rgba(204, 102, 153, 0.2)">
+      <div class="blog-post text-left">
+        <h2 class="blog-post-title">{{ article['title'] }}</h2>
+        <p class="blog-post-meta">{{ article['date'] }} by <a href="#">{{ article['author'] }}</a></p>
+        {{ article['content'] }}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block jses %}
+{{ super() }}
+<script type="text/javascript">
+    $('#head-nav-post').addClass('active')
+    $('#head-nav-post')[0].href = '#'
+</script>
+{% endblock %}
